@@ -1,11 +1,14 @@
+import java.util.*;
 public class Population extends Inputs{
 
-    int chromosome[][];
+    Random r=new Random();
+    int chromosomes[][];
     String gene[];
     int test[][];
     int i,j,k=0;
+
     public Population(){
-        chromosome= new int[noOfDays][noOfLectures];
+        chromosomes= new int[20][noOfDays*noOfLectures];
         gene= new String[noOfDays*noOfLectures];
         test= new int[noOfDays*noOfLectures][noOfDays*noOfLectures];
     }
@@ -16,13 +19,23 @@ public class Population extends Inputs{
             for(j=0;j<noOfSubjects;j++){
                 for(k=0;k<noOfTeachers;k++){
                     if(i<gene.length){
-                        gene[i]=binaryConverter(j+1,k+1); 
+                        gene[i]=binaryConverter(j,k);   // Make j&k +1
                         System.out.println("Gene "+i+" = "+gene[i]);
                         i++;
                     } 
                 }
-            }
-            
+            }  
         }
+    public void chromosome(){
+        
+        for(i=0;i<20;i++){
+            System.out.println("Chromosome"+i+" :");
+            for(j=0;j<noOfDays*noOfLectures;j++){
+                chromosomes[i][j]=r.nextInt(noOfDays*noOfLectures);
+                System.out.print(" "+chromosomes[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
     
 }
