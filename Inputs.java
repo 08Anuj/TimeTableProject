@@ -4,6 +4,8 @@ public class Inputs{
     public int noOfDepartments;
     public int noOfSubjects;
     public int noOfTeachers;
+    public int noOfChromosome;
+    public int parameter01_NotMoreLecturesOfTeacherInWeek;
 
     public Inputs(){
 
@@ -12,5 +14,9 @@ public class Inputs{
         noOfDepartments=1;
         noOfSubjects=3;
         noOfTeachers=3;
+
+        noOfChromosome=20;
+
+        parameter01_NotMoreLecturesOfTeacherInWeek=3;
     }
 }

@@ -28,7 +28,7 @@ public class Population extends Inputs{
         }
     public void chromosome(){
         
-        for(i=0;i<20;i++){
+        for(i=0;i<noOfChromosome;i++){
             System.out.println("Chromosome"+i+" :");
             for(j=0;j<noOfDays*noOfLectures;j++){
                 chromosomes[i][j]=r.nextInt(noOfDays*noOfLectures);
