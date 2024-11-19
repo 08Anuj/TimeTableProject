@@ -34,18 +34,26 @@ public class Testing extends Population {
         for(i=0;i<20;i++){
             int pointer=0;
             int penalty=0;
+            sameElement[0]=chromosomes[i][0];
             for(j=0;j<noOfSubjects*noOfTeachers;j++){
                 for(k=0;k<sameElement.length;k++){
-                    if(chromosomes[i][j]==sameElement[k]){
-                        // fitnessValue[i]+=1;
-                        sameValues[k]+=1;
-                    }else{
-                        pointer=+1;
-                        sameElement[pointer]=chromosomes[i][j];
-                    }
+                    
+                        if(chromosomes[i][j]==sameElement[k]){
+                            // fitnessValue[i]+=1;
+                            sameValues[k]+=1;
+                        }else{
+                            if(sameElement[k]==-1){
+                            pointer+=1;
+                            if(pointer<9)
+                            sameElement[pointer]=chromosomes[i][j];
+                            }else break;
+                        }
+                    
                 }
             }
             for(k=0;k<sameElement.length;k++){
+                System.out.println("Same Element["+i+":"+k+"]="+sameElement[k]);
+                System.out.println("Same values["+i+":"+k+"]="+sameValues[k]);
                 if(sameValues[k]>3){
                     penalty+=1;
                     sameValues[k]=0;
@@ -54,6 +62,7 @@ public class Testing extends Population {
                     sameValues[k]=0;
                     sameElement[k]=-1;
                 }
+                
             }
             fitnessValue[i]-=penalty;
         }
